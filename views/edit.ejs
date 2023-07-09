@@ -1,0 +1,10 @@
+<div class="container-fluid mt-3">
+<form class="" method="post" action="/edit">
+<input type="hidden" name="_id" value="<%= data._id %>">
+  <textarea class="form-control mb-3 fw-bold" id="exampleFormControlTextarea1" rows="3" name="todo"><%= data.todo %></textarea>
+  <textarea class="form-control mb-3" id="exampleFormControlTextarea1" rows="6" name="deskripsi"><%= data.deskripsi %></textarea>
+  <div class="d-grid gap-2 d-block">
+  <button class="btn btn-outline-primary" type="submit">Add</button>
+  </div>
+</form>
+</div>

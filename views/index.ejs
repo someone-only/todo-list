@@ -1,0 +1,33 @@
+<div class="container-fluid mt-3">
+<div class="input-group mb-3">
+  <form method="post" class="d-flex mt-3" action="/">
+    <input type="text" name="todo" id="todo" class="form-control me-2" placeholder="Type your task">
+    <button class="btn btn-outline-primary" type="submit">Add</button>
+  </form> 
+</div>
+<% if(todo.length !== 0){ %>
+  <div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        My task
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <ul class="list-group">
+         <% todo.forEach((todos) => { %>
+         <li class="list-group-item">
+          <form class="form-check" method="post" action="/delete" >
+           <input type="hidden" name="_id" value="<%= todos._id %>">
+           <input onchange="this.form.submit()" class="form-check-input me-1" type="checkbox" value="" id="todolist">
+           <label class="form-check-label ms-3 text-break" for="todolist"><%= todos.todo %></label>
+          </form>
+         </li>
+         <% }) %>
+       </ul>
+      </div>
+    </div>
+  </div> 
+  <% } %>
+</div>

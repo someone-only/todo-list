@@ -1,0 +1,38 @@
+<style>
+  .card {
+    height: 100%;
+  }
+  
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .card-text {
+    flex-grow: 1;
+  }
+</style>
+
+<div class="container mt-4">
+  <div class="row">
+    <% todo.forEach((todos) => { %>
+      <div class="col-lg-4 col-md-6 col-sm-12 my-3">
+        <div class="card text-center mb-4">
+          <div class="card-body">
+            <h5 class="card-title"><%= todos.todo %></h5>
+              <p class="card-text"><%= todos.deskripsi %></p>
+              <div class="card-footer"> 
+            <a href="/edit/<%= todos._id%>" class="btn btn-info badge">Ubah</a>
+            <form method="POST" action="/delete" class="d-inline">
+           <input type="hidden" name="_id" value="<%= todos._id %>">
+              <button type="submit" class="btn btn-danger badge">Hapus</button>
+            </form>
+          </div>
+          </div>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+</div>
+
